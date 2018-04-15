@@ -13,7 +13,8 @@ ActiveRecord::Base.logger = Logger.new(STDOUT) if ENV['DEBUG']
 # Basic Setup
 
 # Auto-load all models
-Dir[APP_ROOT.join('app', 'models', '*.rb')].each { |file| require file }
+require_relative '../app/models/task.rb'
+require_relative '../app/models/taskmethod.rb'
 
 # Establish database connection
 ActiveRecord::Base.establish_connection :adapter  => 'sqlite3',
